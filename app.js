@@ -151,8 +151,35 @@ function getNextPalindromeDate(date){
     return [ctr, nextDate];
 }
 
-var date={
-    day:8,
-    month:8,
-    year: 2021
-};
+var inputDate=document.querySelector("#date-input");
+var checkButton=document.querySelector("#button");
+var resultOutput= document.querySelector("#result-message");
+
+function eventHandler(){
+    var Birthdate=inputDate.value;
+    if(Birthdate !== "")
+    {
+        var listOfDates= Birthdate.split("_");
+        var date={
+            day: Number(listOfDates[2]),
+            month:Number(listOfDates[1]),
+            year: Number(listOfDates[0]),
+        };
+        var isPalindrome=checkPalindromeForAllDateFormat(date);
+        if(isPalindrome)
+        {
+            resultOutput.innerText="Your Birthdate is a Palindrome";
+        }
+        else{
+            var[ctr,nextDate]=getNextPalindromeDate(date);
+            resultOutput.innerText ="No, unfortunately your Birthdate is not a Palindrome. The next palindrome date is " + nextDate.day + "_" + nextDate.month + "_" + nextDate.year + ctr + " days"; 
+        }
+
+    } 
+    else
+    {
+        resultOutput.innerText="please select a date";
+    }
+}
+
+checkButton.addEventListener('click',eventHandler);
