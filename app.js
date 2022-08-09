@@ -178,7 +178,7 @@ function eventHandler()
         }
         else{
             var[ctr,nextDate]=getNextPalindromeDate(date);
-            resultOutput.innerText ="No, unfortunately your Birthdate is not a Palindrome. The next palindrome date is " + nextDate.day + "-"+ nextDate.month + "-" + nextDate.year +" . Which is in "+ ctr + " days"; 
+            resultOutput.innerText ="No, unfortunately your Birthdate is not a Palindrome. The next palindrome date is " + nextDate.month + "-"+ nextDate.day + "-" + nextDate.year +" . Which is in "+ ctr + " days"; 
         }
 
     } 
