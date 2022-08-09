@@ -155,24 +155,30 @@ var inputDate=document.querySelector("#date-input");
 var checkButton=document.querySelector("#button");
 var resultOutput= document.querySelector("#result-message");
 
-function eventHandler(){
-    var Birthdate=inputDate.value;
-    if(Birthdate !== "")
-    {
-        var listOfDates= Birthdate.split("_");
+function eventHandler()
+{
+     var Birthdate=inputDate.value;
+     if(Birthdate !== '')
+     {
+         var listOfDates= Birthdate.split('-');
+         console.log(listOfDates);
         var date={
             day: Number(listOfDates[2]),
             month:Number(listOfDates[1]),
             year: Number(listOfDates[0]),
         };
+        console.log(date);
+    
         var isPalindrome=checkPalindromeForAllDateFormat(date);
+        console.log(isPalindrome);
+    
         if(isPalindrome)
         {
             resultOutput.innerText="Your Birthdate is a Palindrome";
         }
         else{
             var[ctr,nextDate]=getNextPalindromeDate(date);
-            resultOutput.innerText ="No, unfortunately your Birthdate is not a Palindrome. The next palindrome date is " + nextDate.day + "_" + nextDate.month + "_" + nextDate.year + ctr + " days"; 
+            resultOutput.innerText ="No, unfortunately your Birthdate is not a Palindrome. The next palindrome date is " + nextDate.day + "-"+ nextDate.month + "-" + nextDate.year +" . Which is in "+ ctr + " days"; 
         }
 
     } 
